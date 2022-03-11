@@ -2,13 +2,15 @@ Reset			=		\033[0m						# Text Reset
 R				=		\033[0;31m					# Red
 G				=		\033[0;32m					# Green
 
-NAME			=		megaphone
+NAME			=		Phone_Book
 
-SRCS			=		megaphone.cpp \
+SRCS			=		main.cpp \
+						PhoneBook.cpp \
+						Contact.cpp \
 
 OBJS			=		$(SRCS:.cpp=.o)
 
-DEBUG			=		-g -fsanitize=adress
+#DEBUG			=		-g -fsanitize=adress
 
 FLAGS			=		-Wall -Werror -Wextra -std=c++98
 
