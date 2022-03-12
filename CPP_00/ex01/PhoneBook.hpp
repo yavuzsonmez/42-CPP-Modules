@@ -3,6 +3,8 @@
 
 #include "Contact.hpp"
 
+void DisplayTrunc(std::string str);
+
 class PhoneBook {
 
 	public:
@@ -13,7 +15,7 @@ class PhoneBook {
 
 		void DisplayBook(void);
 		void DisplayContact(unsigned int i);
-		void DisplayTrunc(std::string str);
+
 };
 
 #endif

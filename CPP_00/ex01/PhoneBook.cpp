@@ -27,7 +27,6 @@ void DisplayTrunc(std::string str) {
 	if (length == 10)
 		truncStr[9] = '.';
 
-	std::cout << "|";
 	while (length < 10)
 	{
 		std::cout << " ";
@@ -42,15 +41,16 @@ void PhoneBook::DisplayBook(void) {
 
 	unsigned int d = 0;
 
-	std::cout << "|     Index|First Name| Last Name|  Nickname|" << std::endl;
 	for (unsigned int i = 0; i < 8; i++)
 	{
 		if (this->contact[i]._first_name != "" || this->contact[i]._last_name != "" || this->contact[i]._nickname != "")
 		{
-			std::cout << "|         " << std::to_string(i) << "|";
-			this->DisplayTrunc(this->contact[i]._first_name);
-			this->DisplayTrunc(this->contact[i]._last_name);
-			this->DisplayTrunc(this->contact[i]._nickname);
+			if (d == 0)
+				std::cout << "|     Index|First Name| Last Name|  Nickname|" << std::endl;
+			std::cout << "|         " << std::to_string(i + 1) << "|";
+			DisplayTrunc(this->contact[i]._first_name);
+			DisplayTrunc(this->contact[i]._last_name);
+			DisplayTrunc(this->contact[i]._nickname);
 			std::cout << std::endl;
 			d++;
 		}
@@ -66,6 +66,15 @@ void PhoneBook::DisplayBook(void) {
 
 void PhoneBook::DisplayContact(unsigned int i) {
 
+	if (this->contact[i]._first_name == ""
+			&& this->contact[i]._last_name == ""
+			&& this->contact[i]._nickname == ""
+			&& this->contact[i]._phone_number == ""
+			&& this->contact[i]._darkest_secret == "")
+	{
+		std::cout << "No contact there.." << std::endl;
+		return ;
+	}
 	std::cout << "[First Name] - " << this->contact[i]._first_name << std::endl;
 	std::cout << "[Last Name] - " << this->contact[i]._last_name << std::endl;
 	std::cout << "[Nickname] - " << this->contact[i]._nickname << std::endl;
