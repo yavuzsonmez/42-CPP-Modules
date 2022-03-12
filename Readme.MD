@@ -23,7 +23,7 @@ https://github.com/qingqingqingli/CPP/
 | This | `this->var` | pointer on current instance | |
 | Initialization List | | | |
 | Const var | `float cont pi; Sample( float const f)` | | |
-| Const fct | `void bar (void) const;` | | if a member function does not modify the class' instance, declare it as a const. Then `this->var = 0;` will not be possible.|
+| Const fct | `void bar (void) const;` | if a member function does not modify the class' instance, declare it as a const. Then `this->var = 0;` will not be possible. Read only instance | |
 
 - Initialization List
 - Const
