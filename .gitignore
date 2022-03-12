@@ -1,1 +1,8 @@
 .vscode/
+a.out
+**.o
+**.a
+**.json
+**.a
+.DS_Store
+.dccache
