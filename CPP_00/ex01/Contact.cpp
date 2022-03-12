@@ -3,11 +3,13 @@
 
 Contact::Contact(void) {
 
-	std::cin >> this->_first_name;
-	std::cin >> this->_last_name;
-	std::cin >> this->_nickname;
-	std::cin >> this->_phone_number;
-	std::cin >> this->_darkest_secret;
+	std::string init = "";
+
+	this->_first_name << init;
+	this->_last_name << init;
+	this->_nickname << init;
+	this->_phone_number << init;
+	this->_darkest_secret << init;
 
 	return ;
 };

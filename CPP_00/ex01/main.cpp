@@ -4,7 +4,6 @@
 
 int main(void)
 {
-	PhoneBook book[8];
 	std::string cmd;
 	unsigned int i = 0;
 

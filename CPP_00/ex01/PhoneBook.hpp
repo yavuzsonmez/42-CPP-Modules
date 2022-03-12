@@ -8,7 +8,7 @@ class PhoneBook {
 		~PhoneBook(void);
 
 	private:
-		
+		Contact book[8];
 };
 
 #endif
