@@ -6,18 +6,71 @@
 
 PhoneBook::PhoneBook(void) {
 
-	std::cout << "Phone Book initialized" << std::endl;
+	std::cout << "Phone Book constructed" << std::endl;
 	return ;
 
 };
 
-void PhoneBook::Display(void) {
+void DisplayTrunc(std::string str) {
 
+	if (str == "")
+	{
+		std::cout << "|          |";
+		return ;
+	}
+	std::string truncStr;
+	unsigned int length;
+
+	truncStr = str.substr(0, 10);
+	length = truncStr.length();
+
+	if (length == 10)
+		truncStr[9] = '.';
+
+	std::cout << "|";
+	while (length < 10)
+	{
+		std::cout << " ";
+		length++;
+	}
+	std::cout << truncStr << "|";
+};
+
+/*	Display the entire Phone Book */
+
+void PhoneBook::DisplayBook(void) {
+
+	unsigned int d = 0;
+
+	std::cout << "|     Index|First Name| Last Name|  Nickname|" << std::endl;
 	for (unsigned int i = 0; i < 8; i++)
 	{
-		std::cout << this->contact[i]._first_name << std::endl;
-	}
+		if (this->contact[i]._first_name != "" || this->contact[i]._last_name != "" || this->contact[i]._nickname != "")
+		{
+			std::cout << "|         " << std::to_string(i) << "|";
+			this->DisplayTrunc(this->contact[i]._first_name);
+			this->DisplayTrunc(this->contact[i]._last_name);
+			this->DisplayTrunc(this->contact[i]._nickname);
+			std::cout << std::endl;
+			d++;
+		}
+		if (d == 0 && i == 7)
+			std::cout << "No contact in the Phone Book.." << std::endl;
+	};
 
+	return ;
+
+};
+
+/*	Display the chosen Contact in the Phone Book */
+
+void PhoneBook::DisplayContact(unsigned int i) {
+
+	std::cout << "[First Name] - " << this->contact[i]._first_name << std::endl;
+	std::cout << "[Last Name] - " << this->contact[i]._last_name << std::endl;
+	std::cout << "[Nickname] - " << this->contact[i]._nickname << std::endl;
+	std::cout << "[Number] - " << this->contact[i]._phone_number << std::endl;
+	std::cout << "[Secret] - " << this->contact[i]._darkest_secret << std::endl;
 	return ;
 
 };

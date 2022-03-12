@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 #include "PhoneBook.hpp"
 #include "Contact.hpp"
 
@@ -8,7 +9,8 @@ int main(void)
 	std::string cmd;
 	unsigned int i = 0;
 
-	std::cout << "Welcome to the Phone Book ! Enter one of the command below" << std::endl << "-> ADD - SEARCH - EXIT <-" << std::endl << "> ";
+	std::cout << "Welcome to the Phone Book ! Enter a command.." << std::endl << "ADD - SEARCH - EXIT" << std::endl;
+	std::cout << "____________________" << std::endl << "> ";
 	std::cin >> cmd;
 	while (true)
 	{
@@ -21,8 +23,14 @@ int main(void)
 		}
 		else if (cmd == "SEARCH")
 		{
-			phone_book.Display();
-			return (0);
+			phone_book.DisplayBook();
+			std::cout << "Which contact index are you looking for (1-8)" << std::endl << "> ";
+			std::cin >> cmd;
+			i = stoi(cmd) - 1;
+			if (i >= 0 && i <= 7)
+				phone_book.DisplayContact(i);
+			else
+				std::cout << "Wrong index" << std::endl;
 		}
 		else if (cmd == "EXIT")
 		{
@@ -30,12 +38,10 @@ int main(void)
 			return (0);
 		}
 		else
-		{
 			std::cout << "Wrong Command" << std::endl;
-			return (1);
-		}
+		std::cout << "____________________" << std::endl << "> ";
 		std::cout << "Enter a command (ADD, SEARCH, EXIT)" << std::endl;
 		std::cin >> cmd;
 	}
-	return 0;
+	return (0);
 }

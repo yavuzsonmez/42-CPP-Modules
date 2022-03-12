@@ -11,8 +11,9 @@ class PhoneBook {
 		PhoneBook(void);
 		~PhoneBook(void);
 
-		void Display(void);
-
+		void DisplayBook(void);
+		void DisplayContact(unsigned int i);
+		void DisplayTrunc(std::string str);
 };
 
 #endif
