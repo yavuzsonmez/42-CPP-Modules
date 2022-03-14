@@ -8,11 +8,11 @@ class Contact {
 		~Contact(void);
 
 		void NewContact(void);
-		std::string getFirstName(void);
-		std::string getLastName(void);
-		std::string getNickname(void);
-		std::string getNumber(void);
-		std::string getSecret(void);
+		std::string getFirstName(void) const ;
+		std::string getLastName(void) const ;
+		std::string getNickname(void) const ;
+		std::string getNumber(void) const ;
+		std::string getSecret(void) const ;
 
 	private:
 		std::string _first_name;

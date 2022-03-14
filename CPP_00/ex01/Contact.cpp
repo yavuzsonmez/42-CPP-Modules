@@ -48,31 +48,31 @@ void Contact::NewContact(void) {
 
 };
 
-std::string Contact::getFirstName(void) {
+std::string Contact::getFirstName(void) const {
 
 	return this->_first_name;
 
 };
 
-std::string Contact::getLastName(void) {
+std::string Contact::getLastName(void) const {
 
 	return this->_last_name;
 
 };
 
-std::string Contact::getNickname(void) {
+std::string Contact::getNickname(void) const {
 
 	return this->_nickname;
 
 };
 
-std::string Contact::getNumber(void) {
+std::string Contact::getNumber(void) const {
 
 	return this->_phone_number;
 
 };
 
-std::string Contact::getSecret(void) {
+std::string Contact::getSecret(void) const {
 
 	return this->_darkest_secret;
 

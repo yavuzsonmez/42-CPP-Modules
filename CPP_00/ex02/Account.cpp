@@ -11,8 +11,6 @@ Account::~Account(void) {
 	return ;
 }
 
-static int
-
 class Account {
 
 
