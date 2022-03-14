@@ -10,7 +10,7 @@ SRCS			=		main.cpp \
 
 OBJS			=		$(SRCS:.cpp=.o)
 
-#DEBUG			=		-g -fsanitize=adress
+DEBUG			=		-g -fsanitize=address
 
 FLAGS			=		-Wall -Werror -Wextra -std=c++98
 
@@ -18,7 +18,7 @@ FLAGS			=		-Wall -Werror -Wextra -std=c++98
 						@c++ $(CFLAGS) -c $< -o $(<:.c=.o)
 
 $(NAME)			:		$(OBJS)
-						@c++ $(FLAGS) $(OBJS) -o $(NAME)
+						@c++ $(FLAGS) $(DEBUG) $(OBJS) -o $(NAME)
 						@echo "$(G)$(NAME) has been created$(Reset)"
 
 clean			:

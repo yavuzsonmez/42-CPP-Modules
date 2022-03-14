@@ -6,6 +6,11 @@
 Contact::Contact(void) {
 
 	std::cout << "Contact constructed" << std::endl;
+	this->_first_name = "" ;
+	this->_last_name = "" ;
+	this->_nickname = "" ;
+	this->_phone_number = "" ;
+	this->_darkest_secret = "" ;
 	return ;
 };
 
@@ -13,23 +18,63 @@ Contact::Contact(void) {
 
 void Contact::NewContact(void) {
 
-
 	std::cout << "First name:" << std::endl << "> ";
-	std::cin >> this->_first_name;
+	getline(std::cin, this->_first_name);
 
 	std::cout << "Last Name:" << std::endl << "> ";
-	std::cin >> this->_last_name;
+	getline(std::cin, this->_last_name);
 
 	std::cout << "Nickname:" << std::endl << "> ";
-	std::cin >> this->_nickname;
+	getline(std::cin, this->_nickname);
 
 	std::cout << "Phone Number:" << std::endl << "> ";
-	std::cin >> this->_phone_number;
+	getline(std::cin, this->_phone_number);
+	for (int i = 0; i < this->_phone_number.length(); i++)
+	{
+		if (isdigit(this->_phone_number[i]) == false)
+		{
+			std::cout << "The Phone number should only be composed by digits, enter a new one" << std::endl << "> ";
+			getline(std::cin, this->_phone_number);
+			i = -1;
+			continue ;
+		}
+
+	}
 
 	std::cout << "Darkest Secret:" << std::endl << "> ";
-	std::cin >> this->_darkest_secret;
+	getline(std::cin, this->_darkest_secret);
 
 	return ;
+
+};
+
+std::string Contact::getFirstName(void) {
+
+	return this->_first_name;
+
+};
+
+std::string Contact::getLastName(void) {
+
+	return this->_last_name;
+
+};
+
+std::string Contact::getNickname(void) {
+
+	return this->_nickname;
+
+};
+
+std::string Contact::getNumber(void) {
+
+	return this->_phone_number;
+
+};
+
+std::string Contact::getSecret(void) {
+
+	return this->_darkest_secret;
 
 };
 
@@ -37,7 +82,7 @@ void Contact::NewContact(void) {
 
 Contact::~Contact(void) {
 
-	std::cout << "Contact destroyed" << std::endl;
+	//std::cout << "Contact destroyed" << std::endl;
 	return ;
 
 };

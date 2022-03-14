@@ -3,19 +3,20 @@
 
 #include "Contact.hpp"
 
-void DisplayTrunc(std::string str);
-
 class PhoneBook {
 
 	public:
-		Contact contact[8];
 
 		PhoneBook(void);
 		~PhoneBook(void);
 
-		void DisplayBook(void);
+		bool DisplayBook(void);
 		void DisplayContact(unsigned int i);
+		void DisplayTrunc(std::string str);
+		Contact *getContact(unsigned int i);
 
+	private:
+		Contact contact[8];
 };
 
 #endif
