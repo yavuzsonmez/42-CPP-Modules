@@ -1,53 +1,39 @@
+t::_nbts = 0;
+t::_totalAmount = 0;
+t::_totalNbDeposits = 0;
+t::_totalNbWithdrawals = 0;
 
-Account::Account(int deposit) {
 
-	//std::cout << "Phone Book constructed" << std::endl;
-	return ;
+t::t(void) {
 
-};
-
-Account::~Account(void) {
-
-	return ;
 }
 
-class Account {
+t::~t(void) {
 
+}
 
-public:
+int t::getNbts(void) {
+	return (t::_nbts);
+}
+int t::getTotalAmount(void) {
+	return (t::_totalAmount);
+}
+int t::getNbDeposits(void) {
+	return (t::_totalNbDeposits);
+}
+int t::getNbWithdrawals(void) {
+	return (t::_totalNbWithdrawals);
+}
 
-	typedef Account		t;
+void t::displaytsInfos(void) {
 
-	static int	getNbAccounts( void );
-	static int	getTotalAmount( void );
-	static int	getNbDeposits( void );
-	static int	getNbWithdrawals( void );
-	static void	displayAccountsInfos( void );
+}
 
-	Account( int initial_deposit );
-	~Account( void );
+int t::checkAmount (void) const {
 
-	void	makeDeposit( int deposit );
-	bool	makeWithdrawal( int withdrawal );
-	int		checkAmount( void ) const;
-	void	displayStatus( void ) const;
+	return (this->_amount);
+}
 
-
-private:
-
-	static int	_nbAccounts;
-	static int	_totalAmount;
-	static int	_totalNbDeposits;
-	static int	_totalNbWithdrawals;
-
-	static void	_displayTimestamp( void );
-
-	int				_accountIndex;
-	int				_amount;
-	int				_nbDeposits;
-	int				_nbWithdrawals;
-
-	Account( void );
-
-};
-
+void t::_displayTimestamp(void) {
+	
+}
