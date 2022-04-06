@@ -2,6 +2,10 @@
 
 ---
 
+***Namespaces, classes, member functions, stdio streams, initialization lists, static, const, and some other basic stuf***
+
+---
+
 | Notion | Exemple | Notes | Description |
 | ----------- | ----------- | ----------- | ----------- |
 |Namespace | 	`namespace Foo{ ... };` | | <a href="https://docs.microsoft.com/en-us/cpp/cpp/namespaces-cpp?view=msvc-170#:~:text=A%20namespace%20is%20a%20declarative,code%20base%20includes%20multiple%20libraries.">Namespace</a> |

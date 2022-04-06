@@ -2,10 +2,9 @@ Reset			=		\033[0m						# Text Reset
 R				=		\033[0;31m					# Red
 G				=		\033[0;32m					# Green
 
-NAME			=		Account
+NAME			=		./replace
 
-SRCS			=		tests.cpp \
-						Account.cpp \
+SRCS			=		main.cpp \
 
 OBJS			=		$(SRCS:.cpp=.o)
 
@@ -26,7 +25,9 @@ clean			:
 
 fclean			:		clean
 						@rm -f $(NAME)
+						@rm -f *.replace
 						@echo "$(R)$(NAME) has been removed$(Reset)"
+						@echo "$(R)new files have been removed$(Reset)"
 
 all				:		$(NAME)
 

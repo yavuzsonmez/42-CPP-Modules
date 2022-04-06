@@ -2,10 +2,9 @@ Reset			=		\033[0m						# Text Reset
 R				=		\033[0;31m					# Red
 G				=		\033[0;32m					# Green
 
-NAME			=		Account
+NAME			=		Brain
 
-SRCS			=		tests.cpp \
-						Account.cpp \
+SRCS			=		main.cpp \
 
 OBJS			=		$(SRCS:.cpp=.o)
 
