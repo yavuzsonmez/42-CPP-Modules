@@ -4,16 +4,16 @@
 ## About
 *Summary of my personnal notes during the c++ modules*
 
+---
 
-<h3>-> <a target="_blank" href="https://github.com/yavuzsonmez/CPP-Modules/tree/main/CPP_00">CPP 00</a> <-<br />Namespaces, classes, member functions, stdio streams,
-initialization lists, static, const, and some other basic
-stuff </h3>
+<h3>-> <a target="_blank" href="https://github.com/yavuzsonmez/CPP-Modules/tree/main/CPP_00">CPP 00</a> <-<br />Namespaces, classes, member functions, stdio streams, initialization lists, static, const, and some other basic stuff </h3>
 
 ---
 
-<h3>-> <a target="_blank" href="https://github.com/yavuzsonmez/CPP-Modules/tree/main/CPP_01">CPP 01</a> <-<br />Memory allocation, pointers to members,
-references, switch statement
-stuff </h3>
+<h3>-> <a target="_blank" href="https://github.com/yavuzsonmez/CPP-Modules/tree/main/CPP_01">CPP 01</a> <-<br />Memory allocation, pointers to members, references, switch statement</h3>
 
+---
+
+<h3>-> <a target="_blank" href="https://github.com/yavuzsonmez/CPP-Modules/tree/main/CPP_02">CPP 02</a> <-<br />Ad-hoc polymorphism, operator overloading and Orthodox Canonical class form</h3>
 
 ---
