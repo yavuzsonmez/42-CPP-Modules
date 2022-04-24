@@ -4,9 +4,9 @@ Point::Point(void) {
 
 }
 
-Point::Point(Point const &src)//:_x(src._x), _y(src._y)
+Point::Point(Point const &src)
 {
-	*this = src; //This doesnt work
+	*this = src;
 }
 
 Point::Point(const float x, const float y):_x(x), _y(y) {
@@ -16,8 +16,8 @@ Point::~Point(void) {
 }
 
 Point& Point::operator=(Point const &rhs) {
-	setX(rhs._x);
-	setY(rhs._y);
+	const_cast<Fixed&>(_x) = rhs._x;
+	const_cast<Fixed&>(_y) = rhs._y;
 	return (*this);
 }
 
@@ -28,13 +28,3 @@ Fixed Point::getX(void) const {
 Fixed Point::getY(void) const {
 	return (_y);
 }
-
-void	Point::setX(Fixed src) {
-	(Fixed)_x = src;
-}
-
-void	Point::setY(Fixed src) {
-	(Fixed)_y = src;
-}
-
-

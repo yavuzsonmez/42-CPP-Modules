@@ -8,23 +8,17 @@ int main()
 	{
 		bool inside;
 
-		Point a(8.1, 3.2);
-		Point b(5.4, 2.1);
-		Point c(4.2, 1.1);
-		Point point(7.1, 3.2);
+		Point a(4, 1);
+		Point b(7, 6);
+		Point c(12, 1);
+		Point point(11, 1.1); //check with 1.0 to verify edge
 
-		std::cout << a.getX().toFloat() << " and " << a.getY().toFloat() << std::endl;
+		inside = bsp(a, b, c, point);
 
-//std::cout << << std::endl;
-		a.setX(b.getX());
-
-		std::cout << a.getX().toFloat() << " and " << a.getY().toFloat() << std::endl;
-
-		//inside = bsp(a, b, c, point);
-		//if (inside)
-		//	std::cout << "The point is in the triangle" << std::endl;
-		//else
-		//	std::cout << "The point is not in the triangle" << std::endl;
+		if (inside)
+			std::cout << "The point is in the triangle" << std::endl;
+		else
+			std::cout << "The point is not in the triangle" << std::endl;
 	}
 	return (0);
 }

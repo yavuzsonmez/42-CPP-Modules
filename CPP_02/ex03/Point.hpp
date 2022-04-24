@@ -15,8 +15,6 @@ class Point {
 		Point&	operator=(Point const &rhs);
 		Fixed	getX(void) const;
 		Fixed	getY(void) const;
-		void	setX(Fixed src);
-		void	setY(Fixed src);
 
 	private:
 		const Fixed _x;
