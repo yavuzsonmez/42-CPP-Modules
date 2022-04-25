@@ -4,19 +4,19 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-ClapTrap::ClapTrap():_name("default"), _hit(10), _energy(10), _attack(0)
+ClapTrap::ClapTrap():_name("default"), _hit(100), _energy(100), _attack(30)
 {
-	std::cout << "Default Construcor called" << std::endl;
+	std::cout << "ClapTrap Default Construcor called" << std::endl;
 }
 
-ClapTrap::ClapTrap(std::string name):_name(name), _hit(10), _energy(10), _attack(0)
+ClapTrap::ClapTrap(std::string name):_name(name), _hit(100), _energy(100), _attack(30)
 {
-	std::cout << "Construcor called" << std::endl;
+	std::cout << "ClapTrap Construcor called" << std::endl;
 }
 
 ClapTrap::ClapTrap( const ClapTrap & src )
 {
-	std::cout << "Copy constructor called with " << src << std::endl;
+	std::cout << "ClapTrap Copy constructor called with " << src << std::endl;
 	*this = src;
 }
 
@@ -27,7 +27,7 @@ ClapTrap::ClapTrap( const ClapTrap & src )
 
 ClapTrap::~ClapTrap()
 {
-	std::cout << "Destructor called" << std::endl;
+	std::cout << "ClapTrap Destructor called" << std::endl;
 }
 
 
@@ -49,7 +49,7 @@ ClapTrap &				ClapTrap::operator=( ClapTrap const & rhs )
 
 std::ostream &			operator<<( std::ostream & o, ClapTrap const & i )
 {
-	o << i.getName() << " has "
+	o << i.getName() << " ClapTrap has "
 	<< i.getHit() << " health points, "
 	<< i.getEnergy() << " energy, "
 	<< i.getAttack() << " attack damage." << std::endl;
@@ -75,8 +75,8 @@ void ClapTrap::attack( std::string const & target )
 	else
 	{
 		_energy < 1 ?
-			std::cout << "No more energy." << std::endl :
-			std::cout << _name << " died." << std::endl ;
+			std::cout << "No more energy. Cannot attack." << std::endl :
+			std::cout << _name << " died. Cannot attack." << std::endl ;
 	}
 }
 
@@ -95,7 +95,7 @@ void ClapTrap::beRepaired( unsigned int amount )
 {
 	if (_energy > 0 && _hit > 0)
 	{
-		_hit + amount < 10 ? _hit += amount : _hit = 10 ;
+		_hit += amount ;
 		--_energy;
 		std::cout << "ClapTrap " << _name
 		<< " has been repaired by  " << amount
@@ -105,8 +105,8 @@ void ClapTrap::beRepaired( unsigned int amount )
 	else
 	{
 		_energy < 1 ?
-			std::cout << "No more energy." << std::endl :
-			std::cout << _name << " died." << std::endl ;
+			std::cout << "No more energy. Cannot be repaired." << std::endl :
+			std::cout << _name << " died. Cannot be repaired." << std::endl ;
 	}
 }
 
@@ -135,5 +135,24 @@ unsigned int ClapTrap::getAttack() const
 	return (_attack);
 }
 
+void ClapTrap::setName(std::string name)
+{
+	_name = name;
+}
+
+void ClapTrap::setHit(unsigned int hit)
+{
+	_hit = hit;
+}
+
+void ClapTrap::setEnergy(unsigned int energy)
+{
+	_energy = energy;
+}
+
+void ClapTrap::setAttack(unsigned int attack)
+{
+	_attack = attack;
+}
 
 /* ************************************************************************** */

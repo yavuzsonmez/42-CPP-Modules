@@ -1,22 +1,22 @@
-#include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-ScavTrap::ScavTrap()
+FragTrap::FragTrap()
 {
-	std::cout << "ScavTrap Default Construcor called" << std::endl;
+	std::cout << "FragTrap Defaut Construcor called" << std::endl;
 }
 
-ScavTrap::ScavTrap(std::string name):ClapTrap(name)
+FragTrap::FragTrap(std::string name):ClapTrap(name, 100, 100, 30)
 {
-	std::cout << "ScavTrap Construcor called" << std::endl;
+	std::cout << "FragTrap Construcor called" << std::endl;
 }
 
-ScavTrap::ScavTrap( const ScavTrap & src )
+FragTrap::FragTrap( const FragTrap & src )
 {
-	std::cout << "ScavTrap Copy constructor called with " << src << std::endl;
+	std::cout << "FragTrap Copy constructor called with " << src << std::endl;
 	*this = src;
 }
 
@@ -25,9 +25,9 @@ ScavTrap::ScavTrap( const ScavTrap & src )
 ** -------------------------------- DESTRUCTOR --------------------------------
 */
 
-ScavTrap::~ScavTrap()
+FragTrap::~FragTrap()
 {
-	std::cout << "ScavTrap Destructor called" << std::endl;
+	std::cout << "FragTrap Destructor called" << std::endl;
 }
 
 
@@ -35,7 +35,7 @@ ScavTrap::~ScavTrap()
 ** --------------------------------- OVERLOAD ---------------------------------
 */
 
-ScavTrap &				ScavTrap::operator=( ScavTrap const & rhs )
+FragTrap &				FragTrap::operator=( FragTrap const & rhs )
 {
 	if ( this != &rhs )
 	{
@@ -47,9 +47,9 @@ ScavTrap &				ScavTrap::operator=( ScavTrap const & rhs )
 	return (*this);
 }
 
-std::ostream &			operator<<( std::ostream & o, ScavTrap const & i )
+std::ostream &			operator<<( std::ostream & o, FragTrap const & i )
 {
-	o << "ScavTrap " << i.getName() << " has "
+	o << "FragTrap " << i.getName() << " has "
 	<< i.getHit() << " health points, "
 	<< i.getEnergy() << " energy, "
 	<< i.getAttack() << " attack damage." << std::endl;
@@ -62,17 +62,17 @@ std::ostream &			operator<<( std::ostream & o, ScavTrap const & i )
 ** --------------------------------- METHODS ----------------------------------
 */
 
-void ScavTrap::guardGate()
+void FragTrap::highFivesGuys()
 {
-	std::cout << "ScavTrap " << getName() << " is now in Gate keeper mode." << std::endl;
+	std::cout << "FragTrap " << getName() << ": \"could you high five me?\"" << std::endl;
 }
 
-void ScavTrap::attack( std::string const & target )
+void FragTrap::attack( std::string const & target )
 {
 	if (getEnergy() > 0 && getHit() > 0)
 	{
 		setEnergy(getEnergy() - 1);
-		std::cout << "ScavTrap " << getName()
+		std::cout << "FragTrap " << getName()
 		<< " attacks " << target
 		<< " causing " << getAttack()
 		<< " points of damage! " << std::endl;
