@@ -2,13 +2,12 @@ Reset			=		\033[0m						# Text Reset
 R				=		\033[0;31m					# Red
 G				=		\033[0;32m					# Green
 
-NAME			=		./DiamondTrap
+NAME			=		./Animal
 
-SRCS			=		main.cpp \
-						ClapTrap.cpp \
-						ScavTrap.cpp \
-						FragTrap.cpp \
-						DiamondTrap.cpp \
+SRCS			=		src/main.cpp \
+						src/Animal.cpp \
+						src/Cat.cpp \
+						src/Dog.cpp \
 
 OBJS			=		$(SRCS:.cpp=.o)
 
@@ -21,6 +20,11 @@ FLAGS			=		-Wall -Werror -Wextra -Wshadow -Wno-shadow -std=c++98
 
 $(NAME)			:		$(OBJS)
 						@c++ $(FLAGS) $(OBJS) -o $(NAME)
+						@echo "$(G)$(NAME) has been created$(Reset)"
+
+dev				:		$(OBJS)
+						@c++ $(OBJS) -o $(NAME)
+						@echo "$(R)Compiling without flags WARNING !$(Reset)"
 						@echo "$(G)$(NAME) has been created$(Reset)"
 
 clean			:
