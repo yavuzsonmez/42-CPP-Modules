@@ -2,14 +2,18 @@ Reset			=		\033[0m						# Text Reset
 R				=		\033[0;31m					# Red
 G				=		\033[0;32m					# Green
 
-NAME			=		./Animal
+NAME			=		./Brain
+
+HDRS			=		inc/Animal.hpp \
+						inc/Cat.hpp \
+						inc/Dog.hpp \
+						inc/Brain.hpp\
 
 SRCS			=		src/main.cpp \
 						src/Animal.cpp \
 						src/Cat.cpp \
 						src/Dog.cpp \
-						src/WrongAnimal.cpp \
-						src/WrongCat.cpp \
+						src/Brain.cpp \
 
 OBJS			=		$(SRCS:.cpp=.o)
 
@@ -20,7 +24,7 @@ FLAGS			=		-Wall -Werror -Wextra -Wshadow -Wno-shadow -std=c++98
 .c.o			:
 						@c++ $(CFLAGS) -c $< -o $(<:.c=.o)
 
-$(NAME)			:		$(OBJS)
+$(NAME)			:		$(OBJS) $(HDRS)
 						@c++ $(FLAGS) $(OBJS) -o $(NAME)
 						@echo "$(G)$(NAME) has been created$(Reset)"
 
