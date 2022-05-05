@@ -3,6 +3,7 @@
 
 # include <iostream>
 # include <string>
+# include "ICharacter.hpp"
 
 class AMateria
 {
@@ -22,11 +23,10 @@ class AMateria
 
 	protected:
 
+		std::string type;
+
 	private:
 
 };
-
-
-std::ostream &			operator<<( std::ostream & o, AMateria const & i );
 
 #endif /* ******************************************************** AMATERIA_H */

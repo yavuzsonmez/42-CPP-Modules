@@ -1,10 +1,9 @@
 #ifndef CURE_HPP
 # define CURE_HPP
 
-# include <iostream>
-# include <string>
+#include "AMateria.hpp"
 
-class Cure : virtual public AMetaria
+class Cure : virtual public AMateria
 {
 
 	public:
@@ -15,12 +14,10 @@ class Cure : virtual public AMetaria
 
 		Cure &		operator=( Cure const & rhs );
 
-	private:
+		Cure* clone() const;
+		void use(ICharacter& target);
 
-		std::string _type;
 
 };
-
-std::ostream &			operator<<( std::ostream & o, Cure const & i );
 
 #endif /* ************************************************************ CURE_H */

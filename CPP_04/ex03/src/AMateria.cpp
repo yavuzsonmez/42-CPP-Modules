@@ -6,17 +6,18 @@
 
 AMateria::AMateria()
 {
-	std::cout << "Materia created" << std::endl;
+	std::cout << "Materia default created" << std::endl;
 }
 
-AMateria::AMateria(std::string const & type)
+AMateria::AMateria(std::string const & type):type(type)
 {
-	std::cout << "Materia created" << std::endl;
+	std::cout << "Materia was created" << std::endl;
 }
 
 AMateria::AMateria( const AMateria & src )
 {
-
+	std::cout << "Materia cloned from another Materia" << std::endl;
+	*this = src;
 }
 
 
@@ -29,24 +30,13 @@ AMateria::~AMateria()
 	std::cout << "Materia destroyed" << std::endl;
 }
 
-
 /*
 ** --------------------------------- OVERLOAD ---------------------------------
 */
 
 AMateria &				AMateria::operator=( AMateria const & rhs )
 {
-	//if ( this != &rhs )
-	//{
-		//this->_value = rhs.getValue();
-	//}
 	return *this;
-}
-
-std::ostream &			operator<<( std::ostream & o, AMateria const & i )
-{
-	//o << "Value = " << i.getValue();
-	return o;
 }
 
 
@@ -54,10 +44,19 @@ std::ostream &			operator<<( std::ostream & o, AMateria const & i )
 ** --------------------------------- METHODS ----------------------------------
 */
 
+void AMateria::use(ICharacter& target)
+{
+
+}
+
 
 /*
 ** --------------------------------- ACCESSOR ---------------------------------
 */
 
+std::string const & AMateria::getType() const
+{
+	return (type);
+}
 
 /* ************************************************************************** */

@@ -1,18 +1,15 @@
-#include "Ice.hpp"
+#include "MateriaSource.hpp"
 
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-Ice::Ice():AMateria::AMateria("ice")
+MateriaSource::MateriaSource()
 {
-	std::cout << "Cure Materia created" << std::endl;
 }
 
-Ice::Ice( const Ice & src )
+MateriaSource::MateriaSource( const MateriaSource & src )
 {
-	std::cout << "Ice Materia cloned from another Ice Materia" << std::endl;
-	*this = src;
 }
 
 
@@ -20,9 +17,9 @@ Ice::Ice( const Ice & src )
 ** -------------------------------- DESTRUCTOR --------------------------------
 */
 
-Ice::~Ice()
+MateriaSource::~MateriaSource()
 {
-	std::cout << "Ice Materia destroyed" << std::endl;
+	
 }
 
 
@@ -30,8 +27,12 @@ Ice::~Ice()
 ** --------------------------------- OVERLOAD ---------------------------------
 */
 
-Ice &				Ice::operator=( Ice const & rhs )
+MateriaSource &				MateriaSource::operator=( MateriaSource const & rhs )
 {
+	//if ( this != &rhs )
+	//{
+		//this->_value = rhs.getValue();
+	//}
 	return *this;
 }
 
@@ -39,15 +40,6 @@ Ice &				Ice::operator=( Ice const & rhs )
 ** --------------------------------- METHODS ----------------------------------
 */
 
-Ice* Ice::clone() const
-{
-	return new Ice(*this);
-}
-
-void Ice::use(ICharacter& target)
-{
-	std::cout << "* shoots and ice bolt at " << target.getName() << " *" << std::endl;
-}
 
 /*
 ** --------------------------------- ACCESSOR ---------------------------------
