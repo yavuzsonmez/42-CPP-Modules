@@ -1,4 +1,4 @@
-#include "AMateria.hpp"
+#include "../inc/AMateria.hpp"
 
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------

@@ -1,5 +1,5 @@
 #include "../inc/Character.hpp"
-#include "../inc/IMateriaSource.hpp"
+#include "../inc/MateriaSource.hpp"
 
 int main()
 {

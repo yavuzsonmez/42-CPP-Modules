@@ -1,6 +1,6 @@
-#include "Character.hpp"
-#include "Cure.hpp"
-#include "Ice.hpp"
+#include "../inc/Character.hpp"
+#include "../inc/Cure.hpp"
+#include "../inc/Ice.hpp"
 
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
@@ -22,7 +22,8 @@ Character::Character(std::string const & name):_name(name)
 
 Character::Character( const Character & src )
 {
-	std::cout << "Default Character created" << std::endl;
+	*this = src;
+	std::cout << "Character cloned" << std::endl;
 }
 
 
@@ -42,10 +43,12 @@ Character::~Character()
 
 Character &				Character::operator=( Character const & rhs )
 {
-	//if ( this != &rhs )
-	//{
-		//this->_value = rhs.getValue();
-	//}
+	if ( this != &rhs )
+	{
+		_name = rhs._name;
+		for (unsigned int i = 0; i < 4; i++)
+			*_inventory[i] = *rhs._inventory[i];
+	}
 	return *this;
 }
 
@@ -83,7 +86,7 @@ void Character::unequip(int idx)
 		std::cout << "Not part of the inventory" << std::endl;
 		return;
 	}
-	if (_inentory[idx] != 0)
+	if (_inventory[idx] != 0)
 	{
 		_inventory[idx] = 0;
 		std::cout << "The Materia was successfully unequiped" << std::endl;

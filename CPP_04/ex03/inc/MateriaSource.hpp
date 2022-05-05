@@ -1,10 +1,11 @@
 #ifndef MATERIASOURCE_HPP
 # define MATERIASOURCE_HPP
 
-# include <iostream>
-# include <string>
+# include "IMateriaSource.hpp"
+# include "Ice.hpp"
+# include "Cure.hpp"
 
-class MateriaSource
+class MateriaSource : virtual public IMateriaSource
 {
 
 	public:
@@ -15,7 +16,13 @@ class MateriaSource
 
 		MateriaSource &		operator=( MateriaSource const & rhs );
 
+		void learnMateria(AMateria*);
+		AMateria* createMateria(std::string const & type);
+
 	private:
+
+		AMateria* _inventory[4];
+		std::string _name;
 
 };
 

@@ -4,10 +4,21 @@ G				=		\033[0;32m					# Green
 
 NAME			=		./Materia
 
-HDRS			=		inc/AAmateria.hpp \
+HDRS			=		inc/Amateria.hpp \
+						inc/IMateriaSource.hpp \
+						inc/MateriaSource.hpp \
+						inc/ICharacter.hpp \
+						inc/Character.hpp \
+						inc/Cure.hpp \
+						inc/Ice.hpp \
+
 
 SRCS			=		src/main.cpp \
-						src/AAmateria.cpp \
+						src/AMateria.cpp \
+						src/Character.cpp \
+						src/Cure.cpp \
+						src/Ice.cpp \
+						src/MateriaSource.cpp \
 
 OBJS			=		$(SRCS:.cpp=.o)
 
