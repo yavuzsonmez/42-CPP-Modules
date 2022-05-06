@@ -54,7 +54,10 @@ Character &				Character::operator=( Character const & rhs )
 		for (unsigned int i = 0; i < 4; i++)
 		{
 			if (_inventory[i] != 0)
+			{
 				delete _inventory[i];
+				_inventory[i] = 0;
+			}
 			if (rhs._inventory[i] != 0)
 			{
 				_inventory[i] = rhs._inventory[i]->clone();
@@ -83,7 +86,7 @@ void Character::equip(AMateria* m)
 		if (_inventory[i] == 0)
 		{
 			_inventory[i] = m;
-			std::cout << "The Materia was successfully equiped" << std::endl;
+			std::cout << "The Materia was successfully equiped at index " << i << std::endl;
 			break;
 		}
 		i++;
@@ -103,7 +106,7 @@ void Character::unequip(int idx)
 	{
 		addFloor(_inventory[idx]);
 		_inventory[idx] = 0;
-		std::cout << "The Materia was successfully unequiped" << std::endl;
+		std::cout << "The Materia at index " << idx << " was successfully unequiped" << std::endl;
 	}
 	else
 		std::cout << "No Materia there" << std::endl;
@@ -122,7 +125,6 @@ void Character::use(int idx, ICharacter& target)
 		std::cout << "No Materia there" << std::endl;
 
 }
-
 
 /*
 ** --------------------------------- ACCESSOR ---------------------------------

@@ -1,12 +1,20 @@
-#include "../inc/Floor.hpp"
 #include "../inc/Character.hpp"
 #include "../inc/MateriaSource.hpp"
+
+typedef struct Floor
+{
+	AMateria *				item;
+	struct Floor *			next;
+} Floor;
+
+Floor* ground;
 
 void	addFloor(AMateria* item)
 {
 	Floor * tmp;
 	Floor * node;
 
+	tmp = ground;
 	node = new Floor;
 	node->item = item;
 	node->next = NULL;
@@ -18,6 +26,7 @@ void	addFloor(AMateria* item)
 			tmp = tmp->next;
 		tmp->next = node;
 	}
+	std::cout << "The Materia has been thrown on the ground floor" << std::endl;
 }
 
 static void removeFloor()
@@ -28,6 +37,7 @@ static void removeFloor()
 	while (rm != NULL)
 	{
 		tmp = rm->next;
+		delete(rm->item);
 		delete(rm);
 		rm = tmp;
 	}
@@ -46,6 +56,7 @@ int main()
 	me->equip(tmp);
 	tmp = src->createMateria("cure");
 	me->equip(tmp);
+	me->unequip(1);
 
 	ICharacter* bob = new Character("bob");
 	me->use(0, *bob);

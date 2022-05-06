@@ -24,6 +24,11 @@ MateriaSource::MateriaSource( const MateriaSource & src )
 
 MateriaSource::~MateriaSource()
 {
+	for (unsigned int i = 0; i < 4; i++)
+	{
+		if (_inventory[i] != 0)
+			delete _inventory[i];
+	}
 	std::cout << "Materia Source destroyed" << std::endl;
 }
 
@@ -39,7 +44,10 @@ MateriaSource &				MateriaSource::operator=( MateriaSource const & rhs )
 		for (unsigned int i = 0; i < 4; i++)
 		{
 			if (_inventory[i] != 0)
+			{
 				delete _inventory[i];
+				_inventory[i] = 0;
+			}
 			if (rhs._inventory[i] != 0)
 			{
 				_inventory[i] = rhs._inventory[i]->clone();
