@@ -10,9 +10,8 @@ Dog::Dog():_brain(new Brain())
 	std::cout << "A Dog was born" << std::endl;
 }
 
-Dog::Dog( const Dog & src )
+Dog::Dog( const Dog & src ):_brain(new Brain(*(src._brain)))
 {
-	_brain = src._brain;
 	std::cout << "A Dog cloned from " << src.type << " was born" << std::endl;
 }
 

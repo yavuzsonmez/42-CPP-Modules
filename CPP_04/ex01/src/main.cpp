@@ -25,6 +25,14 @@ int main()
 		 std::cout << std::endl << "Cloning a Cat" << std::endl;
 		 a = b;
 	}
+	{
+		 Dog basic;
+		 {
+			Dog tmp;
+			tmp = basic;
+		 }
+	}
+
 
 	system("leaks Brain");
 	return (0);

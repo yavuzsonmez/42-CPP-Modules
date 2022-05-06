@@ -10,7 +10,7 @@ class Cat : virtual public Animal
 
 		Cat();
 		Cat( Cat const & src );
-		~Cat();
+		virtual ~Cat();
 
 		Cat &		operator=( Cat const & rhs );
 

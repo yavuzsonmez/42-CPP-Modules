@@ -10,7 +10,7 @@ class Ice : virtual public AMateria
 
 		Ice();
 		Ice( Ice const & src );
-		~Ice();
+		virtual ~Ice();
 
 		Ice &		operator=( Ice const & rhs );
 

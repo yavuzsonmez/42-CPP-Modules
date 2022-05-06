@@ -38,7 +38,7 @@ Brain &				Brain::operator=( Brain const & rhs )
 			_ideas[i] = rhs._ideas[i];
 
 		std::cout << &rhs << " rhs Brain was deeply copied to: "
-		<< this << "lhs Brain" << std::endl;
+		<< this << " lhs Brain" << std::endl;
 		for (unsigned int i = 0; i < 5; i++)
 			std::cout << " lhs idea " << _ideas + i << " = " << _ideas[i]
 			<< " now equal to rhs idea " << rhs._ideas + i << " = " << rhs._ideas[i] << std::endl;

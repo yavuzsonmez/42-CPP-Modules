@@ -12,7 +12,7 @@ class MateriaSource : virtual public IMateriaSource
 
 		MateriaSource();
 		MateriaSource( MateriaSource const & src );
-		~MateriaSource();
+		virtual ~MateriaSource();
 
 		MateriaSource &		operator=( MateriaSource const & rhs );
 

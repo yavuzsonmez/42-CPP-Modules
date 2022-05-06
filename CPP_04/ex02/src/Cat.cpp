@@ -10,9 +10,8 @@ Cat::Cat():_brain(new Brain())
 	std::cout << "A Cat was born" << std::endl;
 }
 
-Cat::Cat( const Cat & src )
+Cat::Cat( const Cat & src ):_brain(new Brain(*(src._brain)))
 {
-	_brain = src._brain;
 	std::cout << "A Cat cloned from " << src.type << " was born" << std::endl;
 }
 
