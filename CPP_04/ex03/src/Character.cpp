@@ -33,6 +33,11 @@ Character::Character( const Character & src )
 
 Character::~Character()
 {
+	for (unsigned int i = 0; i < 4; i++)
+	{
+		if (_inventory[i] != 0)
+			delete _inventory[i];
+	}
 	std::cout << _name << " Character destroyed" << std::endl;
 }
 
@@ -47,7 +52,15 @@ Character &				Character::operator=( Character const & rhs )
 	{
 		_name = rhs._name;
 		for (unsigned int i = 0; i < 4; i++)
-			*_inventory[i] = *rhs._inventory[i];
+		{
+			if (_inventory[i] != 0)
+				delete _inventory[i];
+			if (rhs._inventory[i] != 0)
+			{
+				_inventory[i] = rhs._inventory[i]->clone();
+				std::cout << "Materia copied from rhs to lhs" << std::endl;
+			}
+		}
 	}
 	return *this;
 }
@@ -88,6 +101,7 @@ void Character::unequip(int idx)
 	}
 	if (_inventory[idx] != 0)
 	{
+		addFloor(_inventory[idx]);
 		_inventory[idx] = 0;
 		std::cout << "The Materia was successfully unequiped" << std::endl;
 	}

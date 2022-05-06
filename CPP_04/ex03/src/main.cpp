@@ -1,5 +1,37 @@
+#include "../inc/Floor.hpp"
 #include "../inc/Character.hpp"
 #include "../inc/MateriaSource.hpp"
+
+void	addFloor(AMateria* item)
+{
+	Floor * tmp;
+	Floor * node;
+
+	node = new Floor;
+	node->item = item;
+	node->next = NULL;
+	if (ground == NULL)
+		ground = node;
+	else
+	{
+		while (tmp->next != NULL)
+			tmp = tmp->next;
+		tmp->next = node;
+	}
+}
+
+static void removeFloor()
+{
+	Floor *rm = ground;
+	Floor *tmp;
+
+	while (rm != NULL)
+	{
+		tmp = rm->next;
+		delete(rm);
+		rm = tmp;
+	}
+}
 
 int main()
 {
@@ -22,6 +54,8 @@ int main()
 	delete bob;
 	delete me;
 	delete src;
+
+	removeFloor();
 
 	system("leaks Materia");
 	return (0);

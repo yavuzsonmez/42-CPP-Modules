@@ -11,7 +11,7 @@ AMateria::AMateria()
 
 AMateria::AMateria(std::string const & type):type(type)
 {
-	std::cout << "Materia was created" << std::endl;
+	std::cout << "Materia " << type << " was created" << std::endl;
 }
 
 AMateria::AMateria( const AMateria & src )
@@ -36,6 +36,7 @@ AMateria::~AMateria()
 
 AMateria &				AMateria::operator=( AMateria const & rhs )
 {
+	std::cout << "Materia lsh now equal to Materia rhs" << std::endl;
 	return *this;
 }
 
@@ -46,7 +47,7 @@ AMateria &				AMateria::operator=( AMateria const & rhs )
 
 void AMateria::use(ICharacter& target)
 {
-
+	std::cout << "Materia used on target " << target.getName() << std::endl;
 }
 
 

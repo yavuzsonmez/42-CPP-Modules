@@ -1,4 +1,4 @@
-#include "MateriaSource.hpp"
+#include "../inc/MateriaSource.hpp"
 
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
@@ -34,10 +34,19 @@ MateriaSource::~MateriaSource()
 
 MateriaSource &				MateriaSource::operator=( MateriaSource const & rhs )
 {
-	//if ( this != &rhs )
-	//{
-		//this->_value = rhs.getValue();
-	//}
+	if ( this != &rhs )
+	{
+		for (unsigned int i = 0; i < 4; i++)
+		{
+			if (_inventory[i] != 0)
+				delete _inventory[i];
+			if (rhs._inventory[i] != 0)
+			{
+				_inventory[i] = rhs._inventory[i]->clone();
+				std::cout << "Materia copied from rhs to lhs" << std::endl;
+			}
+		}
+	}
 	return *this;
 }
 
@@ -45,9 +54,27 @@ MateriaSource &				MateriaSource::operator=( MateriaSource const & rhs )
 ** --------------------------------- METHODS ----------------------------------
 */
 
-void MateriaSource::learnMateria(AMateria*)
+void MateriaSource::learnMateria(AMateria* m)
 {
+	unsigned int i = 0;
 
+	if (m == NULL)
+	{
+		std::cout << "No materia to learn";
+		return ;
+	}
+	while (i < 4)
+	{
+		if (_inventory[i] == 0)
+		{
+			_inventory[i] = m;
+			std::cout << "The Materia was successfully learnt" << std::endl;
+			break;
+		}
+		i++;
+	}
+	if (i == 4)
+		std::cout << "No space left to learn new Materia" << std::endl;
 }
 
 AMateria* MateriaSource::createMateria(std::string const & type)

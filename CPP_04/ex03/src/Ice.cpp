@@ -1,4 +1,4 @@
-#include "Ice.hpp"
+#include "../inc/Ice.hpp"
 
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
@@ -6,7 +6,7 @@
 
 Ice::Ice():AMateria::AMateria("ice")
 {
-	std::cout << "Cure Materia created" << std::endl;
+	std::cout << "Ice Materia created" << std::endl;
 }
 
 Ice::Ice( const Ice & src )
@@ -32,6 +32,7 @@ Ice::~Ice()
 
 Ice &				Ice::operator=( Ice const & rhs )
 {
+	std::cout << "Ice Materia lsh now equal to Materia rhs" << std::endl;
 	return *this;
 }
 

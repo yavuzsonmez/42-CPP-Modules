@@ -32,6 +32,7 @@ Cure::~Cure()
 
 Cure &				Cure::operator=( Cure const & rhs )
 {
+	std::cout << "Cure Materia lsh now equal to Materia rhs" << std::endl;
 	return *this;
 }
 

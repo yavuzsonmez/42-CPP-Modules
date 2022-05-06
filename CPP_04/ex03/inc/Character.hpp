@@ -6,7 +6,6 @@
 class Character : virtual public ICharacter
 {
 
-
 	public:
 
 		Character();
@@ -27,5 +26,7 @@ class Character : virtual public ICharacter
 		std::string _name;
 
 };
+
+void	addFloor(AMateria* item);
 
 #endif /* ******************************************************* CHARACTER_H */
