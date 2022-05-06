@@ -1,13 +1,15 @@
 #include "../inc/Character.hpp"
 #include "../inc/MateriaSource.hpp"
 
+
+
 typedef struct Floor
 {
 	AMateria *				item;
 	struct Floor *			next;
 } Floor;
 
-Floor* ground;
+Floor* ground = NULL;
 
 void	addFloor(AMateria* item)
 {
@@ -43,10 +45,9 @@ static void removeFloor()
 	}
 }
 
-int main()
+void foo()
 {
-
-	IMateriaSource* src = new MateriaSource();
+ 	IMateriaSource* src = new MateriaSource();
 	src->learnMateria(new Ice());
 	src->learnMateria(new Cure());
 
@@ -65,9 +66,16 @@ int main()
 	delete bob;
 	delete me;
 	delete src;
+	//unsigned int v = *((unsigned int*) (&ground));
 
 	removeFloor();
+}
 
-	system("leaks Materia");
+int main()
+{
+
+	foo();
+	ground = NULL;
+	//system("leaks Materia");
 	return (0);
 }

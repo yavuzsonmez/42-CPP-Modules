@@ -33,7 +33,7 @@ $(NAME)			:		$(OBJS) $(HDRS)
 						@c++ $(FLAGS) $(OBJS) -o $(NAME)
 						@echo "$(G)$(NAME) has been created$(Reset)"
 
-dev				:		$(OBJS)
+dev				:		$(OBJS) $(HDRS)
 						@c++ $(OBJS) -o $(NAME)
 						@echo "$(R)Compiling without flags WARNING !$(Reset)"
 						@echo "$(G)$(NAME) has been created$(Reset)"
