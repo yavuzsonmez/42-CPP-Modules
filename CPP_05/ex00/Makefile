@@ -1,0 +1,60 @@
+Reset			=		\033[0m						# Text Reset
+R				=		\033[0;31m					# Red
+G				=		\033[0;32m					# Green
+B				=		\033[0;34m					# Blue
+P				=		\033[0;35m					# Purple
+
+NAME			=		./Bureaucrat
+
+HDRS			=		inc/Bureaucrat.hpp \
+
+
+SRCS			=		src/main.cpp \
+						src/Bureaucrat.cpp \
+
+OBJS			=		$(SRCS:.cpp=.o)
+
+DEBUG			=		-g -fsanitize=address
+
+FLAGS			=		-Wall -Werror -Wextra -Wshadow -Wno-shadow -std=c++98
+
+.c.o			:
+						@c++ $(CFLAGS) -c $< -o $(<:.c=.o)
+
+$(NAME)			:		$(OBJS) $(HDRS)
+						@c++ $(FLAGS) $(OBJS) -o $(NAME)
+						@echo "$(G)$(NAME) has been created$(Reset)"
+
+dev				:		$(OBJS) $(HDRS)
+						@c++ $(OBJS) -o $(NAME)
+						@echo "$(R)Compiling without flags WARNING !$(Reset)"
+						@echo "$(G)$(NAME) has been created$(Reset)"
+
+debug				:	$(OBJS) $(HDRS)
+						@c++ $(OBJS) $(DEBUG) -o $(NAME)
+						@echo "$(P)DEBUG MODE : address sanitizer$(Reset)"
+						@echo "$(G)$(NAME) has been created$(Reset)"
+						$(NAME) > debug.log
+						@echo "$(B)Debug logged in 'debug.log'$(Reset)"
+
+valgrind			:	$(NAME)
+						@echo "$(B)Checking for memory leaks..$(Reset)"
+						@valgrind --leak-check=full --log-file="leaks.log" $(NAME)
+						@echo "$(B)Valgrind logged in 'leaks.log'$(Reset)"
+
+clean			:
+						@rm -f $(OBJS)
+						@echo "$(R)Objects have been removed$(Reset)"
+
+fclean			:		clean
+						@rm -f $(NAME)
+						@echo "$(R)$(NAME) has been removed$(Reset)"
+						@rm -f debug.log
+						@rm -f leaks.log
+						@echo "$(R)logs have been removed$(Reset)"
+
+all				:		$(NAME)
+
+re				:		fclean all
+
+.PHONY			:		clean fclean all re

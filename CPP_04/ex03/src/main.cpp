@@ -76,6 +76,6 @@ int main()
 
 	foo();
 	ground = NULL;
-	//system("leaks Materia");
+	system("leaks Materia");
 	return (0);
 }
