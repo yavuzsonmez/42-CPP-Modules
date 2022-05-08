@@ -7,11 +7,17 @@ P				=		\033[0;35m					# Purple
 NAME			=		./Form
 
 HDRS			=		inc/Bureaucrat.hpp \
-						inc/Form.hpp \
+						inc/AForm.hpp \
+						inc/ShrubberyCreationForm.hpp \
+						inc/RobotomyRequestForm.hpp \
+						inc/PresidentialPardonForm.hpp \
 
 SRCS			=		src/main.cpp \
 						src/Bureaucrat.cpp \
-						src/Form.cpp \
+						src/AForm.cpp \
+						src/ShrubberyCreationForm.cpp \
+						src/RobotomyRequestForm.cpp \
+						src/PresidentialPardonForm.cpp \
 
 OBJS			=		$(SRCS:.cpp=.o)
 

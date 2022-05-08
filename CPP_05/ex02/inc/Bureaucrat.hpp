@@ -3,9 +3,9 @@
 
 # include <iostream>
 # include <string>
-# include "Form.hpp"
+# include "AForm.hpp"
 
-class Form;
+class AForm;
 
 class Bureaucrat
 {
@@ -34,8 +34,11 @@ class Bureaucrat
 		{
 			virtual const char* what() const throw();
 		};
-
-		void signForm( Form const & form );
+		class FormNotSignedException: public std::exception
+		{
+			virtual const char* what() const throw();
+		};
+		void signForm( AForm const & form );
 
 	private:
 

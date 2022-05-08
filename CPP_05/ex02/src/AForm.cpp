@@ -1,15 +1,15 @@
-#include "../inc/Form.hpp"
+#include "../inc/AForm.hpp"
 
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-Form::Form():_name("default"), _signed(false), _requiredtoSign(150), _requiredtoExec(150)
+AForm::AForm():_name("default"), _signed(false), _requiredtoSign(150), _requiredtoExec(150)
 {
 	std::cout << "Form default created" << std::endl;
 }
 
-Form::Form(std::string const name, unsigned int requiredtoSign, unsigned int requiredtoExec)
+AForm::AForm(std::string const name, unsigned int requiredtoSign, unsigned int requiredtoExec)
 :_name(name), _signed(false), _requiredtoSign(requiredtoSign), _requiredtoExec(requiredtoExec)
 {
 	if (requiredtoSign < 1 || requiredtoExec < 1)
@@ -19,7 +19,7 @@ Form::Form(std::string const name, unsigned int requiredtoSign, unsigned int req
 	std::cout << "Form " << name << " created" << std::endl;
 }
 
-Form::Form( const Form & src )
+AForm::AForm( const AForm & src )
 :_name(src._name), _signed(false), _requiredtoSign(src._requiredtoSign), _requiredtoExec(src._requiredtoExec)
 {
 	*this = src;
@@ -30,7 +30,7 @@ Form::Form( const Form & src )
 ** -------------------------------- DESTRUCTOR --------------------------------
 */
 
-Form::~Form()
+AForm::~AForm()
 {
 	std::cout << "Form " << _name << " destroyed" << std::endl;
 }
@@ -40,12 +40,12 @@ Form::~Form()
 ** --------------------------------- OVERLOAD ---------------------------------
 */
 
-Form &				Form::operator=( Form const & rhs )
+AForm &				AForm::operator=( AForm const & rhs )
 {
 	return *this;
 }
 
-std::ostream &			operator<<( std::ostream & o, Form const & i )
+std::ostream &			operator<<( std::ostream & o, AForm const & i )
 {
 	o << "Form name: " << i.getName()
 	<< " (is Signed: " << i.getSigned()
@@ -60,19 +60,19 @@ std::ostream &			operator<<( std::ostream & o, Form const & i )
 ** --------------------------------- METHODS ----------------------------------
 */
 
-const char* Form::GradeTooHighException::what() const throw()
+const char* AForm::GradeTooHighException::what() const throw()
 {
 	return ("Grade is too High !");
 }
 
-const char* Form::GradeTooLowException::what() const throw()
+const char* AForm::GradeTooLowException::what() const throw()
 {
 	return ("Grade is too Low !");
 }
 
-void Form::beSigned( Bureaucrat & signer )
+void AForm::beSigned( Bureaucrat & signer )
 {
-	signer.signForm(*this);
+	signer.signAForm(*this);
 	if (signer.getGrade() > _requiredtoSign)
 		throw GradeTooLowException();
 	_signed = true;
@@ -82,22 +82,22 @@ void Form::beSigned( Bureaucrat & signer )
 ** --------------------------------- ACCESSOR ---------------------------------
 */
 
-std::string Form::getName() const
+std::string AForm::getName() const
 {
 	return _name;
 }
 
-unsigned int Form::getRequiredToSign() const
+unsigned int AForm::getRequiredToSign() const
 {
 	return _requiredtoSign;
 }
 
-unsigned int Form::getRequiredToExec() const
+unsigned int AForm::getRequiredToExec() const
 {
 	return _requiredtoExec;
 }
 
-bool Form::getSigned() const
+bool AForm::getSigned() const
 {
 	return _signed;
 }
