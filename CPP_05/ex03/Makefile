@@ -4,13 +4,14 @@ G				=		\033[0;32m					# Green
 B				=		\033[0;34m					# Blue
 P				=		\033[0;35m					# Purple
 
-NAME			=		./Form
+NAME			=		./Intern
 
 HDRS			=		inc/Bureaucrat.hpp \
 						inc/AForm.hpp \
 						inc/ShrubberyCreationForm.hpp \
 						inc/RobotomyRequestForm.hpp \
 						inc/PresidentialPardonForm.hpp \
+						inc/Intern.hpp \
 
 SRCS			=		src/main.cpp \
 						src/Bureaucrat.cpp \
@@ -18,6 +19,7 @@ SRCS			=		src/main.cpp \
 						src/ShrubberyCreationForm.cpp \
 						src/RobotomyRequestForm.cpp \
 						src/PresidentialPardonForm.cpp \
+						src/Intern.cpp \
 
 OBJS			=		$(SRCS:.cpp=.o)
 
