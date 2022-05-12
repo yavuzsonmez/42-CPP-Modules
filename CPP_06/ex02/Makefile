@@ -4,12 +4,11 @@ G				=		\033[0;32m					# Green
 B				=		\033[0;34m					# Blue
 P				=		\033[0;35m					# Purple
 
-NAME			=		./convert
+NAME			=		./identify
 
-HDRS			=		inc/Convert.hpp
+HDRS			=		
 
 SRCS			=		src/main.cpp \
-						src/Convert.cpp \
 
 OBJS			=		$(SRCS:.cpp=.o)
 

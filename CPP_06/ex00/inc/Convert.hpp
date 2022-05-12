@@ -4,8 +4,9 @@
 # include <iostream>
 # include <string>
 # include <sstream>
+# include <stdlib.h>
 
-enum type { _char, _int, _float, _double, _impossible};
+enum type { isChar, isInt, isFloat, isDouble, isImpossible};
 
 class Convert
 {
@@ -20,23 +21,34 @@ class Convert
 		Convert &		operator=( Convert const & rhs );
 
 		void	identifyType();
+		void	convertAll();
 
-		void	toChar(void);
-		void	toInt(void);
-		void	toFloat(void);
-		void	toDouble(void);
+		void	toChar();
+		void	toInt();
+		void	toFloat();
+		void	toDouble();
 
-		void	all(void);
+		enum type	getType() const ;
+		std::string	getToConvert() const ;
+		char	getChar() const ;
+		int		getInt() const ;
+		float	getFloat() const ;
+		double	getDouble() const ;
 
 	private:
 
 		std::string	_toConvert;
-		enum type _type;
+
+		enum type	_type;
+
 		char		_char;
 		int			_int;
 		float		_float;
 		double		_double;
 
 };
+
+std::ostream &	operator<<( std::ostream & o, Convert const & i );
+
 
 #endif /* ********************************************************* CONVERT_H */
