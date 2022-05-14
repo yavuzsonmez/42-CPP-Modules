@@ -4,9 +4,9 @@ G				=		\033[0;32m					# Green
 B				=		\033[0;34m					# Blue
 P				=		\033[0;35m					# Purple
 
-NAME			=		./identify
+NAME			=		./array
 
-HDRS			=		
+HDRS			=		inc/Array.hpp
 
 SRCS			=		src/main.cpp \
 
