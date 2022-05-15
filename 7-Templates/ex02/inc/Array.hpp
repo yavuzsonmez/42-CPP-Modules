@@ -11,14 +11,12 @@ class Array
 	public:
 
 		Array( void ): _arr( new T[0] ), _size( 0 ) {
-			//sranddev();
-			//for(unsigned int i = 0; i < _size; i++)
-			//	_arr[i] = rand();
+			for(unsigned int i = 0; i < _size; i++)
+				_arr[i] = 36;
 		};
 		Array( unsigned int n ): _arr( new T[n] ), _size( n ) {
-			//sranddev();
-			//for(unsigned int i = 0; i < _size; i++)
-			//	_arr[i] = rand();
+			for(unsigned int i = 0; i < _size; i++)
+				_arr[i] = 36;
 		};
 		Array( Array const & src ): _arr( new T[src.size()] ), _size( src.size() ) { *this = src ; }
 		~Array() { delete [] _arr; }
