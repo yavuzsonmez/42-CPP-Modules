@@ -22,8 +22,16 @@ class Span
 		{
 			virtual const char* what() const throw();
 		};
+		class NotEnoughSpaceException: public std::exception
+		{
+			virtual const char* what() const throw();
+		};
 
+		static void print(const int & n);
+
+		void print_vector( void ) const;
 		void addNumber( int number );
+		void addManyNumbers( std::vector <int> const & range );
 		int shortestSpan( void );
 		int longestSpan( void );
 
